@@ -1,0 +1,32 @@
+{
+    "app-id": "org.mozilla.firefox",
+    "runtime-version": "23.08",
+    "sdk": "org.freedesktop.Sdk",
+    "base": "org.mozilla.firefox.BaseApp",
+    "base-version": "23.08",
+    "command": "firefox",
+    "finish-args": [
+        "--allow=devel",
+        "--share=ipc",
+        "--share=network",
+        "--socket=pulseaudio",
+        "--socket=wayland",
+        "--socket=x11",
+        "--socket=pcsc",
+        "--socket=cups",
+        "--require-version=0.11.1",
+        "--persist=.mozilla",
+        "--filesystem=xdg-download:rw",
+        "--filesystem=/run/.heim_org.h5l.kcm-socket",
+        "--filesystem=xdg-run/speech-dispatcher:ro",
+        "--device=all",
+        "--talk-name=org.freedesktop.FileManager1",
+        "--system-talk-name=org.freedesktop.NetworkManager",
+        "--talk-name=org.a11y.Bus",
+        "--talk-name=org.gtk.vfs.*",
+        "--own-name=org.mpris.MediaPlayer2.firefox.*",
+        "--own-name=org.mozilla.firefox.*",
+        "--own-name=org.mozilla.firefox_beta.*",
+        "--command=firefox"
+    ]
+}
