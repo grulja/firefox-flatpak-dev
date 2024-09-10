@@ -3,7 +3,7 @@
 # NOTE: simplified version of runme.sh script from the official Firefox
 
 ARCH=$(flatpak --default-arch)
-FREEDESKTOP_VERSION="23.08"
+FREEDESKTOP_VERSION="24.08"
 
 if [ -z $1 ]; then
   FIREFOX_BUILD_DIR="$HOME/development/projects/others/gecko-dev-fork/objdir"
@@ -20,7 +20,7 @@ flatpak install --user -y flathub org.freedesktop.Sdk $FREEDESKTOP_VERSION
 rm -rf build
 
 # Build
-flatpak build-init --base org.mozilla.firefox.BaseApp --base-version=${FREEDESKTOP_VERSION} build org.mozilla.firefox org.freedesktop.Sdk org.freedesktop.Platform 23.08
+flatpak build-init --base org.mozilla.firefox.BaseApp --base-version=${FREEDESKTOP_VERSION} build org.mozilla.firefox org.freedesktop.Sdk org.freedesktop.Platform 24.08
 
 mkdir -p build/files/lib
 
@@ -92,3 +92,6 @@ flatpak build-finish build                                      \
         --own-name="org.mozilla.firefox.*"                      \
         --own-name="org.mozilla.firefox_beta.*"                 \
         --command=firefox
+
+flatpak build-export --disable-sandbox --no-update-summary repo build "devel"
+flatpak build-update-repo --generate-static-deltas repo

@@ -6,4 +6,4 @@ else
   CMD=$1
 fi
 
-flatpak-builder --run -v build org.mozilla.firefox.json ${CMD}
+flatpak run --user --command=${CMD} org.mozilla.firefox
